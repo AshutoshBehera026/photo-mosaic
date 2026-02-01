@@ -1,0 +1,29 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments (if you use a venv)
+venv/
+env/
+.env
+
+# Logs
+mosaic.log
+*.log
+
+# Personal Data - DO NOT REMOVE THESE
+# This keeps your girlfriend's photos and your outputs off the public web
+tile_library/
+output/
+*.jpg
+*.jpeg
+*.png
+*.bmp
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+#Archived script
+old_script/
