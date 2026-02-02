@@ -51,6 +51,39 @@ python mosaic.py --target "main.jpg" --tiles "./my_folder" --density 120 --msg "
 | `--blend`   | Original color overlay (0.0 to 1.0)       | 0.15              |
 | `--msg`     | Optional text overlay at bottom right     | ""                |
 
+## 🖨️ Physical Print & Resolution Guide
+
+When moving from a digital script to a physical poster, the relationship between **Density**, **Tile Resolution**, and **DPI (Dots Per Inch)** is critical. A professional print requires 300 DPI for "retina-level" clarity.
+
+### 1. The Core Variables
+
+-   **Density (`--density`):** Controls the "Big Picture" clarity. Higher density makes the main subject sharper but makes individual tiles smaller.
+-   **Tile Size (`--tile_size`):** Controls the "Small Picture" clarity. This is the internal pixel resolution of each memory.
+-   **DPI:** The printer's hardware limit. (Standard: 300 for high quality, 150 for budget/large scale).
+
+### 2. Recommended Configuration Matrix
+
+Use the following settings to match standard Indian frame sizes:
+
+| Poster Size (Inches) | Target Frame  | Density   | Tile Size | Final Resolution | Recommended View Distance |
+| :------------------- | :------------ | :-------- | :-------- | :--------------- | :------------------------ |
+| **12" x 18"**        | A3+           | 80 - 100  | 60 px     | 6000 x 9000 px   | 1-2 Feet                  |
+| **18" x 24"**        | Medium Wall   | 120 - 150 | 50 px     | 7500 x 11250 px  | 3-5 Feet                  |
+| **24" x 36"**        | Large Gallery | 180 - 220 | 40 px     | 8800 x 13200 px  | 6+ Feet                   |
+
+### 3. The Math (For the Curious)
+
+To calculate the physical size of an individual photo tile:
+$$\text{Physical Tile Size (Inches)} = \frac{\text{Poster Width (Inches)}}{\text{Density}}$$
+
+_Example:_ On an 18-inch wide poster with a density of 120, each photo of your memories will be **0.15 inches** (~3.8mm) wide. This is the ideal size for a "hidden detail" effect.
+
+### 4. Printing Best Practices
+
+-   **Format:** Export as `.jpg` with `quality=95` or `.tiff` to avoid compression artifacts.
+-   **Color Profile:** The script uses RGB. Ensure your print shop (e.g., Printo or local Pune labs) converts to CMYK correctly or supports high-gamut RGB printing.
+-   **Finish:** Use **Matte or Satin paper**. High-gloss finishes create glare that makes it difficult to see the tiny tile details.
+
 ## 📊 Technical Concept
 
 This project utilizes **Vector Space Search** to achieve its results.
